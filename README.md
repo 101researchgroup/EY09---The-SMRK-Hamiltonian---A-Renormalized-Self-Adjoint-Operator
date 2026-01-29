@@ -6,7 +6,7 @@ series: "Quansistor Field Computing — Compendium"
 
 org: "101research.group"
 project_home: "https://101research.group"
-repo_url: "https://github.com/101researchgroup/EY09---The-SMRK-Hamiltonian---A-Renormalized-Self-Adjoint-Operator/blob/main/README.md)"
+repo_url: "https://github.com/101researchgroup/EY09---The-SMRK-Hamiltonian---A-Renormalized-Self-Adjoint-Operator"
 
 doi: "10.5281/zenodo.18175530"
 isbn: "978-80-11-08018-1"
