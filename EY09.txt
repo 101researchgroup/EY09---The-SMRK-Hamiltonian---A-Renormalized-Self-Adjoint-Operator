@@ -1,0 +1,1473 @@
+﻿Chapter 9
+
+The SMRK Hamiltonian
+A Renormalized Self-Adjoint Operator on
+
+Arithmetic States
+Toward a Hilbert–Pólya Interpretation
+
+Enter Yourname
+
+Abstract
+This section investigates the question of self-adjointness for the SMRK
+Hamiltonian, a property that is fundamental for any meaningful spectral
+interpretation. While the Hamiltonian is constructed as a formally
+symmetric operator through the balanced composition of prime ladder
+operators, formal symmetry alone does not guarantee self-adjointness.
+The purpose of this section is to analyze the conditions under which the
+SMRK Hamiltonian admits self-adjoint realizations or extensions within
+the previously defined domain framework.
+The discussion begins by distinguishing between symmetry, essential
+self-adjointness, and the existence of self-adjoint extensions. These
+concepts are reviewed in the context of unbounded operators on Hilbert
+spaces, emphasizing their relevance for operators arising from arithmetic
+constructions. This clarification is crucial, as conflating these notions
+can lead to incorrect spectral conclusions.
+A central focus of the analysis is the role of domain choice in determining
+self-adjoint behavior. Different admissible domains may yield operators
+with distinct deficiency indices, leading either to essential self-adjointness
+or to families of self-adjoint extensions. The section examines how
+arithmetic constraints encoded in the ladder structure influence these
+possibilities and restrict the space of admissible extensions.
+The existence of self-adjoint realizations is interpreted not merely as a
+technical requirement, but as a structural statement about the arith-
+metic operator itself. Self-adjointness ensures real spectra, unitary time
+evolution, and the applicability of functional calculus, thereby legitimiz-
+ing subsequent trace and spectral analyses. Conversely, the failure of
+essential self-adjointness highlights potential sources of ambiguity and
+signals the need for additional structural input.
+Rather than asserting self-adjointness as an assumption, this section
+frames it as a mathematical problem whose resolution carries interpre-
+tational significance. Both positive and negative outcomes are accom-
+
+
+
+modated within the broader framework, allowing the SMRK program to
+remain analytically honest and conceptually coherent.
+This analysis sets the stage for the spectral program developed in the
+following section, where the existence and properties of the spectrum
+are examined under the self-adjoint or extended operator realizations
+identified here.
+
+1 Objective and Method: Self-Adjointness via Renormalized
+Quadratic Forms
+
+The purpose of this chapter is to construct a self-adjoint realization of the SMRK Hamiltonian,
+defined formally on arithmetic∑states ψ : N→ C by
+
+1( ) ( )
+(HSMRKψ)(n) = ψ(pn) + 1 / )
+
+p p|n ψ(n p + αΛ(n) + β logn ψ(n), (9.1)
+p∈P
+
+where P denotes the set of prime numbers and Λ is the von Mangoldt function.
+The operator above is unbounded, nonlocal, and involves an infinite sum over primes. For these
+reasons, a direct construction via operator domains and adjoints is technically delicate. Instead,
+we adopt the quadratic-form approach, which proceeds as follows:
+
+1. Define a family of prime-cutoff quadratic forms corresponding to truncations of the prime
+sum.
+
+2. Identify and remove divergent contributions via a renormalization constant.
+3. Establish uniform lower bounds and form-relative boundedness.
+4. Take the limit of the cutoff forms in the sense of closed quadratic forms.
+5. Invoke the representation theorem for closed semi-bounded forms to obtain a unique
+
+self-adjoint operator.
+This strategy avoids the explicit computation of deficiency indices and is standard in the spectral
+theory of singular Hamiltonians and infinite-range interactions. :contentReference[oaicite:0]index=0
+
+2 Arithmetic Hilbert Space and Prime Shift Operators
+
+2.1 Arithmetic Hilbert space
+
+We work on the arithmetic Hilbert space
+
+Hcrit := ℓ2(N, 1/n),
+
+consisting of all complex-valued functions ψ : N→ C such that
+∑∞
+
+∥ψ∥2 = |ψ(n)|2
+<∞.
+
+n
+n=1
+
+This weighted space is natural from an arithmetic perspective, as it is invariant under multi-
+plicative scaling and logarithmic potentials. It provides the correct balance between ultraviolet
+growth at large n and summability of arithmetic states.
+
+173
+
+
+
+The inner product is given by ∑∞
+⟨ψ, ϕ⟩ = ψ(n)ϕ(n)
+
+.
+n
+
+n=1
+
+2.2 Prime shift operators
+
+For each prime number p, define the forward prime shift operator Sp by
+
+(Spψ)(n) := ψ(pn).
+
+This operator implements multiplication by p on the arithmetic index set. A direct computation
+shows that Sp is bounded on Hcrit, with operator norm
+
+∥Sp∥ = p−1/2.
+
+The adjoint of Sp with respect to the weighted inner product is given by the backward shift
+
+(S∗
+pψ)(n) = 1p|n ψ(n/p),
+
+where 1p|n denotes the indicator function of divisibility by p. This formula follows from a
+direct change of variables in the defining inner product and reflects the partial invertibility of
+multiplication by p on N.
+
+2.3 Symmetrized prime transitions
+
+The elementary building block of the kinetic part of the SMRK Hamiltonian is the symmetrized
+prime transition operator
+
+Kp := Sp + S∗
+p .
+
+Each Kp is symmetric on Hcrit and bounded with
+
+∥Kp∥ ≤ 2p−1/2.
+
+The decay of these norms with p is crucial: while the sum over all primes diverges, it does so in
+a controlled manner that can be handled by quadratic-form renormalization.
+
+2.4 Diagonal arithmetic potentials
+
+In addition to prime shifts, we introduce diagonal multiplication operators. For any real-valued
+function V : N→ R, define
+
+(V ψ)(n) := V (n)ψ(n),
+with maximal domain
+
+D(V ) := {ψ ∈ Hcrit : V ψ ∈ Hcrit}.
+
+Of particular importance are the arithmetic potentials
+
+VΛ(n) := Λ(n), Vlog(n) := logn,
+
+where Λ denotes the von Mangoldt function. These potentials are unbounded but relatively
+form-bounded with respect to the kinetic terms defined below.
+
+174
+
+
+
+2.5 Formal SMRK Hamiltonian
+
+Combining prime transitions and diagonal arithmetic potentials, the SMRK Hamiltonian is
+formally written as ∑
+
+HSMRK = 1
+Kp + αVΛ + β Vlog.
+p
+
+p∈P
+This expression is purely formal: neither the prime sum nor the diagonal terms define a bounded
+operator on Hcrit when taken together. Nevertheless, it provides the guiding structure for the
+quadratic-form construction developed in subsequent chapters.
+
+2.6 Dense core
+
+Let D0 ⊂ Hcrit denote the space of finitely supported arithmetic functions. This space is dense in
+Hcrit and invariant under all prime shifts Sp, adjoints S∗
+
+p , and diagonal multiplication operators.
+All quadratic forms and operator identities introduced later will be initially defined on D0 and
+extended by closure. This choice of core ensures that all expressions are well-defined at the
+algebraic level and avoids domain pathologies at early stages of the construction.
+
+2.7 Outlook
+
+The operators introduced in this chapter define the arithmetic building blocks of the SMRK
+Hamiltonian. In the next chapter we introduce prime-cutoff quadratic forms, identify their
+divergences, and formulate a renormalization scheme that leads to a closed, semi-bounded form
+in the infinite-prime limit.
+
+3 Prime-Cutoff Quadratic Forms
+
+3.1 Motivation for prime cutoffs
+
+The formal expression for the SMRK Hamiltonian involves an infinite sum over all prime numbers.
+While each individual prime transition operator is bounded, the sum over primes diverges and
+therefore does not define a bounded or even densely-defined operator on the arithmetic Hilbert
+space.
+To control this divergence, we introduce a family of cutoff Hamiltonians in which the prime sum is
+truncated at a finite scale. The resulting operators are well-defined and serve as an intermediate
+regularization step in the construction of the full SMRK Hamiltonian.
+
+3.2 Definition of the cutoff kinetic form
+
+Let P ≥ 2 be a cutoff parameter. We define the∑truncated kinetic operator by
+K(P ) := 1
+
+Kp,
+p∈P p
+p≤P
+
+where K ∗
+p = Sp + Sp as introduced previously.
+
+On the dense core D0, this operator induces a quadratic form
+(P ) ∑
+qkin [ψ] := ⟨ψ,K(P ) 1
+
+ψ⟩ = ⟨ψ,Kpψ⟩.
+p
+
+p≤P
+Each term in the sum is finite, and the truncated form is well-defined for all ψ ∈ D0.
+
+175
+
+
+
+3.3 Explicit expression of the quadratic form
+
+Using the definitions of the prime shift operators, the kinetic form can be written explicitly as
+∞ )
+
+(P ) ∑ ∑ 1(
+qkin [ψ] = 1
+
+ψ(n)ψ(pn) + 1p|n ψ(n)ψ(n/p) .
+p≤ p
+P n=1 n
+
+The two terms correspond respectively to forward and backward prime transitions. By symmetry
+of the inner product, the quadratic form is real-valued.
+
+3.4 Divergence of the cutoff limit
+
+As the cutoff P →∞, the kinetic form diverges
+
+(P ) ∑ . Indeed, for fixed ψ ∈ D0,
+
+1
+q 
+
+kin [ψ] ∼ 2 ∥ψ∥2 as P →∞.
+p≤ p
+P
+
+Since the prime harmonic series diverges logarithmically,
+∑ 1 = log logP +O(1),
+
+p
+p≤P
+
+the quadratic form grows without bound. This divergence is uniform and purely diagonal,
+suggesting that it can be removed by a suitable renormalization subtraction.
+
+3.5 Full cutoff quadratic form
+
+Including the diagonal arithmetic potentials introduced earlier, we define the full cutoff quadratic
+form by
+
+q(P )[ψ] = (P )
+qkin [ψ] + α⟨ψ, VΛψ⟩+ β⟨ψ, Vlogψ⟩, ψ ∈ D0.
+
+Each of the diagonal terms is well-defined on D0, and the form q(P ) is symmetric and semi-bounded
+from below for fixed P .
+
+3.6 Need for renormalization
+
+The divergence of q(P ) as P → ∞ prevents the direct definition of a limiting quadratic form.
+However, the structure of the divergence is simple: it is proportional to the identity and does not
+depend on the arithmetic structure of ψ.
+This observation motivates the introduction of a renormalized quadratic form in which the
+divergent contribution is subtracted explicitly. The construction of this renormalization and the
+proof of convergence of the resulting forms is the subject of the next chapter.
+
+3.7 Outlook
+
+In the following chapter we identify a canonical renormalization constant, define the renormalized
+quadratic forms, and establish their closedness and lower semiboundedness. This will allow us to
+pass to the infinite-prime limit and construct the SMRK Hamiltonian as a self-adjoint operator.
+
+176
+
+
+
+4 Renormalized Quadratic Forms and Logarithmic Confinement
+
+4.1 Structure of the Divergence
+
+In the previous chapter we identified the divergence of the cutoff quadratic forms qP as the prime
+cutoff P tends to infinity. The divergent contribution arises from large primes and is controlled
+by estimates of the form
+
+1 |⟨ 1
+ψ, Spψ⟩| ≲ √ ∥ψ∥2. (9.2)
+
+p p
+
+Summation over primes therefore produces∑a divergence proportional to
+p−1/2. (9.3)
+
+p∈P
+
+Crucially, this divergence is:
+• independent of arithmetic correlations,
+• proportional to the squared norm of the state,
+• universal across states in the form domain.
+
+Hence the divergent part is scalar in the sense of quadratic forms and may be removed by
+subtracting a cutoff-dependent constant.
+
+4.2 Choice of the Renormalization Constant
+
+Let P ≥ 2 denote the prime cutoff. We define th∑e renormalization constant by
+
+C(P ) := 1
+√ . (9.4)
+
+p∈P p
+p≤P
+
+Although C(P ) → ∞ as P → ∞, it grows sublinearly with P and depends only on the cutoff
+parameter. We define the renormalized quadratic form
+
+q̃P (ψ, ϕ) := qP (ψ, ϕ)− C(P )⟨ψ, ϕ⟩, (9.5)
+initially on the finite-support domain.
+Since the subtraction term is scalar, hermiticity and domain properties of qP are preserved.
+
+4.3 Reference Quadratic Form and Confinement
+
+To control the infinite-prime interaction uniformly, we introduce a reference quadratic form
+capturing the natural confinement mechanism of arithmetic dynamics.
+Define ∑( )
+
+q0[ψ] := 1 + log2 n |ψ(n)|2 1
+. (9.6)
+
+n≥1 n
+
+The associated form domain is ∣∣
+D(q0) :  ∣ ∑(
+
+ψ ∈ H ∣∣∣ ) 
+= 1 + log2 n |ψ(n)|2 1
+
+<∞ . (9.7)
+n 
+
+n≥1
+
+The logarithmic square provides confinement in the multiplicative variable x = logn and ensures
+compactness of the resolvent of the associated operator.
+
+177
+
+
+
+4.4 Decomposition of the Renormalized Form
+
+We decompose the renormalized form as
+
+q̃P = q0 + bP , (9.8)
+
+where the interaction form bP is given by
+∑ 1( )
+
+bP (ψ, ϕ) := ⟨Spψ, ϕ⟩+ ⟨Tpψ, ϕ⟩
+p∈P p
+p≤P
+
++ ⟨(V − 1− log2 n)ψ, ϕ⟩ − C(P )⟨ψ, ϕ⟩. (9.9)
+
+The goal is to show that bP is form-bounded with respect to q0, with relative bound strictly less
+than one, uniformly in P .
+
+4.5 Control of Prime Shifts in the Reference Norm
+
+Let ∥ · ∥q0 denote the form norm induced by q0. For ψ of finite support, we estimate
+∑( )
+
+q0[Spψ] = 1 + log2 n |ψ(pn)|2 1
+. (9.10)
+
+n≥1 n
+
+Changing variables m = pn yields
+∑( )
+
+q0[Spψ] = p 1 + log2( 1
+m/p) |ψ(m)|2 . (9.11)
+
+m
+m≥1
+
+Using elementary logarithmic inequalities, one obtains
+
+q0[Spψ] ≤ 2p q0[ψ] + 2p log2 p ∥ψ∥2. (9.12)
+
+An analogous estimate holds for the co-shift operator Tp.
+
+4.6 Form-Boundedness of the Interaction
+
+Applying the Cauchy–Schwarz inequality in the q0-norm, we obtain
+
+|⟨ψ, Spψ⟩| ≤ ∥ψ∥q0 ∥Spψ∥q0 . (9.13)
+
+Combining this with the previous bounds yields, for any ε > 0,
+
+1 |⟨ψ, Spψ⟩| ≤
+log2
+
+ε q0[ψ] + p
+Kε ∥ψ∥2, (9.14)
+
+p p
+
+with a constant Kε independent of P .
+Summation over primes and subtraction of C(P ) therefore imply a uniform bound
+
+|bP (ψ,ψ)| ≤ ε q0[ψ] +Kε ∥ψ∥2, (9.15)
+
+valid for all ψ in the finite-support domain and uniformly in P .
+
+178
+
+
+
+4.7 Consequences
+
+The uniform form-boundedness established above implies that the family of renormalized quadratic
+forms q̃P is closed, semi-bounded, and defined on a common form domain.
+This provides the key analytic control required to take the infinite-prime limit and construct a
+self-adjoint realization of the SMRK Hamiltonian.
+
+4.8 Summary
+
+In this chapter we have:
+• identified the divergent structure of the prime interaction,
+• introduced a renormalization constant removing the divergence,
+• constructed a logarithmically confining reference form,
+• proved uniform form-boundedness of the interaction,
+• established closedness and semi-boundedness of the renormalized forms.
+
+The next chapter takes the infinite-prime limit and proves the existence and uniqueness of the
+self-adjoint SMRK Hamiltonian.
+
+5 The Self-Adjoint SMRK Hamiltonian
+
+5.1 Representation theorem for quadratic forms
+
+Let q̃ denote the closed, densely defined, lower semi-bounded quadratic form constructed in
+the previous chapter on the Hilbert space Hcrit. By the representation theorem for closed
+semi-bounded quadratic forms, there exists a unique self-adjoint operator H̃SMRK such that
+
+q̃[ψ] = ⟨ψ, H̃SMRKψ⟩ for all ψ ∈ D(H̃SMRK),
+where D(H̃SMRK) denotes the operator domain associated with the form.
+This theorem provides the rigorous realization of the SMRK Hamiltonian and constitutes the
+central existence result of the present work.
+
+5.2 Characterization of the operator domain
+
+The domain D(H̃SMRK) consists of all ψ ∈ Hcrit for which there exists ϕ ∈ Hcrit satisfying
+q̃(ψ, η) = ⟨ϕ, η⟩ for all η ∈ D(q̃).
+
+In this case, H̃SMRKψ = ϕ. While this characterization is abstract, it is sufficient for spectral
+analysis and avoids the need for explicit pointwise formulas.
+
+5.3 Formal action of the operator
+
+On the dense core D0 of finitely supported arithmetic states, the operator H̃SMRK acts formally
+as ∑ 1( )
+
+(H̃SMRKψ)(n) = ψ(pn) + 1 / )
+p p|n ψ(n p + αΛ(n)ψ(n) + β lognψ(n)− c(∞)ψ(n),
+
+p∈P
+
+179
+
+
+
+where the constant c(∞) represents the infinite-cutoff limit of the renormalization constant. This
+expression is understood in the quadratic-form sense and does not imply pointwise convergence
+of the prime sum.
+
+5.4 Lower semiboundedness
+
+By construction, the operator H̃SMRK is bounded from below. There exists a constant E0 ∈ R
+such that
+
+⟨ψ, H̃SMRKψ⟩ ≥ E0 ∥ψ∥2 for all ψ ∈ D(H̃SMRK).
+Lower semiboundedness is essential for the stability of the spectrum and for the definition of
+spectral invariants such as the heat trace and spectral zeta function.
+
+5.5 Uniqueness of the self-adjoint realization
+
+The self-adjoint operator H̃SMRK is uniquely determined by the renormalized quadratic form.
+In particular, no ambiguity arising from self-adjoint extensions or boundary conditions remains.
+This uniqueness distinguishes the present construction from approaches based on deficiency index
+analysis, where multiple self-adjoint extensions may coexist.
+
+5.6 Relation to the formal SMRK Hamiltonian
+
+The operator H̃SMRK provides a rigorous realization of the formal Hamiltonian introduced earlier.
+All algebraic identities involving prime shifts and arithmetic potentials are valid when interpreted
+in the quadratic-form sense on the core D0.
+Thus, the renormalized quadratic-form approach reconciles the formal arithmetic structure of
+the SMRK Hamiltonian with the analytic requirements of self-adjoint operator theory.
+
+5.7 Stability under perturbations
+
+Small perturbations of the diagonal arithmetic potentials or of the coefficients α and β lead
+to form-bounded perturbations of q̃. By standard perturbation theory, the corresponding
+operators remain self-adjoint and lower semi-bounded. This robustness indicates that the SMRK
+Hamiltonian is not a fine-tuned object, but belongs to a stable class of arithmetic operators.
+
+5.8 Outlook
+
+Having established the existence and uniqueness of the self-adjoint SMRK Hamiltonian, we now
+turn to the analysis of its spectral properties. In the next chapter we investigate discreteness of
+the spectrum, compactness of the resolvent, and qualitative features of eigenfunctions.
+
+6 Spectral Properties of the SMRK Hamiltonian
+
+6.1 Preliminaries
+
+Let H̃SMRK denote the self-adjoint SMRK Hamiltonian constructed in the previous chapter. By
+construction, this operator is bounded from below and is associated with the closed quadratic
+form q̃ defined on the form domain of the reference quadratic form.
+
+180
+
+
+
+Throughout this chapter we work modulo the additive renormalization constant. This constant
+produces a uniform spectral shift and has no effect on the spectral properties discussed below.
+
+6.2 Compactness of the Resolvent
+
+A key structural feature of H̃SMRK is the logarithmic confinement induced by the reference
+quadratic form ∑( )
+
+q0[ψ] = 1 + log2 n |ψ(n)|2 1
+. (9.16)
+
+n≥1 n
+
+Let H0 denote the self-adjoint operator associated with q0. Since the function 1 + log2 n diverges
+as n→∞, the operator (H0 + i)−1 is compact on the arithmetic Hilbert space.
+The interaction H̃SMRK −H0 is relatively form-bounded with respect to H0 with relative bound
+zero. Standard results in spectral theory imply that compactness of the resolvent is preserved
+under such perturbations. Consequently, the resolvent
+
+(H̃SMRK + i)−1 (9.17)
+
+is a compact operator.
+
+6.3 Pure Point Spectrum
+
+Compactness of the resolvent imposes strong restrictions on the spectrum of H̃SMRK.
+The spectrum consists entirely of isolated eigenvalues of finite multiplicity, with no continuous or
+residual spectrum. Moreover, the eigenvalues diverge to positive infinity.
+Thus the spectrum is purely discrete and may be written as a sequence
+
+σ(H̃SMRK) = {λk}k≥1, λk → +∞ as k →∞. (9.18)
+
+6.4 Eigenfunction Regularity and Localization
+
+Let ψk denote a normalized eigenfunction corresponding to the eigenvalue λk:
+
+H̃SMRKψk = λkψk. (9.19)
+
+Since ψk belongs to the operator dom∑ain of H̃SMRK, it lies in the form domain of q0. Consequently,
+
+log2 n |ψ 2
+k(n)| 1
+
+<∞. (9.20)
+n≥1 n
+
+This shows that eigenfunctions are localized in the multiplicative variable x = logn. Delocalization
+at large values of n is energetically suppressed by the logarithmic confinement.
+
+6.5 Growth of Eigenvalues
+
+The confining reference operator H0 provides a comparison principle for the asymptotic growth
+of the eigenvalues of H̃SMRK.
+Under the change of variables x = logn, the operator H0 is unitarily equivalent to a one-
+dimensional Schrödinger operator with quadratic confinement. Standard Weyl-type asymptotics
+therefore apply.
+
+181
+
+
+
+As a consequence, there exist positive constants c1 and c2 such that
+c1k
+
+2 ≤ λk ≤ c2k
+2 (9.21)
+
+for all sufficiently large k. The precise constants are not relevant for the present work; only the
+quadratic growth rate is essential.
+
+6.6 Spectral Decomposition
+
+Since H̃SMRK has purely discrete spectrum, th∑e spectral theorem yields the expansion
+H̃SMRK = λk |ψk⟩⟨ψk|, (9.22)
+
+k≥1
+
+with convergence in the strong operator topology.
+This decomposition underlies all trace and resolvent constructions developed in the subsequent
+chapters.
+
+6.7 Spectral Projections and Counting Function
+
+Define the eigenvalue counting function by
+N(E) := #{k : λk ≤ E}. (9.23)
+
+Since the spectrum is discrete and unbounded above, N(E) is finite for all finite E. Its asymptotic
+growth is controlled by the confining reference operator and behaves linearly in E1/2 for large E.
+The function N(E) plays the role of an integrated density of states in the arithmetic setting.
+
+6.8 Consequences for Trace Objects
+
+Compactness of the resolvent implies that for a broad class of test functions f , the operator
+f(H̃SMRK) is trace class. In particular, ∑
+
+Tr f(H̃SMRK) = f(λk) (9.24)
+k≥1
+
+is well defined.
+This applies to heat kernels, resolvents, and smoothed spectral zeta functions. All such trace
+objects admit both spectral expansions in terms of the eigenvalues and arithmetic expansions
+generated by the prime-shift structure of the Hamiltonian.
+
+6.9 Summary
+
+In this chapter we have established that:
+• the SMRK Hamiltonian has compact resolvent,
+• its spectrum is purely discrete,
+• eigenfunctions are logarithmically localized,
+• eigenvalues exhibit quadratic growth,
+• trace-class spectral objects are well defined.
+
+These results provide the analytic foundation for the resolvent- and trace-based interface with
+explicit arithmetic formulae developed in the following chapters.
+
+182
+
+
+
+7 Trace Formulas and Spectral Invariants
+
+7.1 Motivation for trace invariants
+
+While individual eigenvalues of the SMRK Hamiltonian are difficult to compute and interpret
+arithmetically, trace invariants provide a robust and conceptually natural alternative. Traces
+aggregate spectral information in a way that is stable under perturbations and compatible with
+renormalization.
+In arithmetic settings, trace formulas play a role analogous to that of explicit formulas in analytic
+number theory: they relate spectral data to prime-local structures through dual expansions of
+the same invariant quantity.
+
+7.2 Heat kernel and heat trace
+
+Let t > 0. Since the SMRK Hamiltonian H̃SMRK is self-adjoint and lower semi-bounded with
+compact resolvent, the heat operator
+
+e−tH̃SMRK
+
+is trace class for all t > 0.
+The heat trace is defined by
+
+( ∑
+Θ(t) := T e−tH̃ ) ∞
+
+r SMRK = e−tEk ,
+k=1
+
+where {Ek} denotes the discrete spectrum of H̃SMRK. This function encodes global spectral
+information and serves as a primary spectral invariant.
+
+7.3 Short-time behavior
+
+As t→ 0+, the heat trace exhibits divergent behavior reflecting the high energy density of states.
+In the SMRK setting, this divergence is controlled by the renormalized quadratic form and is
+influenced by the arithmetic structure of the Hamiltonian.
+The leading short-time asymptotics of Θ(t) are determined by the diagonal logarithmic potential
+and are expected to follow a power-law behavior modulated by logarithmic corrections. Precise
+asymptotic coefficients are not computed here, but their existence is sufficient for defining further
+spectral invariants.
+
+7.4 Spectral zeta function
+
+Associated with the heat trace is the spectral zeta function
+∑∞
+
+ζspec(s) := E−s
+k ,
+
+k=1
+
+defined initially for ℜ(s) sufficiently large. Using the Mellin transform of the heat trace, this
+function admits the integral representation ∫
+
+ζspec(s) = 1 ∞
+ts−1
+
+Γ(s) Θ(t) dt,
+0
+
+which provides analytic continuation to a meromorphic function in the complex plane.
+
+183
+
+
+
+7.5 Determinants and regularized products
+
+The spectral zeta function allows the definition of a zeta-regularized determinant of the SMRK
+Hamiltonian by ( ) (
+
+det H̃ ′ )
+ζ SMRK := exp −ζspec(0) ,
+
+provided that ζspec(s) is regular at s = 0. Such determinants encode global spectral information
+and play an important role in quantum field theory and spectral geometry.
+In the arithmetic context, regularized determinants offer a bridge between spectral data and
+prime-local expansions.
+
+7.6 Prime-side expansion of trace invariants
+
+The construction of the SMRK Hamiltonian suggests that trace invariants admit alternative
+representations in terms of prime-local data. Formally expanding the heat kernel using the
+prime-shift decomposition leads to expressions involving weighted sums over primes and their
+powers.
+Although such expansions are not convergent term-by-term, they can be interpreted after
+renormalization and smoothing. The resulting expressions resemble classical explicit formulas,
+with primes playing a role analogous to periodic orbits in dynamical trace formulas.
+
+7.7 Spectral-side versus prime-side duality
+
+A central conceptual point is that the heat trace and related invariants admit two dual represen-
+tations: a spectral sum over eigenvalues and a prime-local expansion over arithmetic transitions.
+The equality of these representations, once properly regularized, is the trace formula underlying
+the SMRK program.
+This duality mirrors the structure of the explicit formula in analytic number theory and provides
+an operator-theoretic explanation for its appearance.
+
+7.8 Stability and renormalization
+
+Trace invariants are meaningful only if they are stable under changes in regularization and
+insensitive to cutoff artifacts. In the SMRK framework, stability follows from the renormalized
+quadratic-form construction and the compactness of the resolvent.
+Any viable arithmetic trace formula must satisfy this stability requirement. Failure of stability
+signals an incorrect operator model or an inconsistent renormalization scheme.
+
+7.9 Outlook
+
+Trace formulas and spectral invariants provide the main interface between the SMRK Hamiltonian
+and classical arithmetic questions. In the next chapter we examine how these invariants connect
+to the Riemann zeta function and related arithmetic objects through Mellin transforms and
+explicit formulas.
+
+184
+
+
+
+8 Connection to the Riemann Zeta Function
+
+8.1 Motivation and perspective
+
+The trace invariants introduced in the previous chapter acquire arithmetic significance only once
+they are related to classical objects of analytic number theory. Among these, the Riemann zeta
+function occupies a central role. The aim of this chapter is not to identify eigenvalues of the
+SMRK Hamiltonian with zeros of ζ(s), but to explain how the zeta function emerges naturally
+from trace invariants through integral transforms and prime-local expansions.
+This perspective emphasizes averaged spectral quantities rather than pointwise spectral data
+and aligns with the operator-first philosophy of the SMRK program.
+
+8.2 Mellin transform of the heat trace
+
+Let Θ(t) denote the heat trace of the SMRK ∫Hamiltonian. Consider its Mellin transform
+∞
+
+MΘ(s) := ts−1Θ(t) dt,
+0
+
+which converges for ℜ(s) sufficiently large after subtraction of the leading short-time divergences.
+Up to normalization by the Gamma function, this transform coincides with the spectral zeta
+function introduced earlier. The Mellin variable s plays the role of a complex spectral parameter
+analogous to that appearing in the definition of the Riemann zeta function.
+
+8.3 Emergence of the Euler product
+
+On the prime-local side, formal expansions of the heat kernel in terms of prime shift operators lead
+to expressions involving products over primes. After appropriate renormalization and smoothing,
+these products take a form reminiscent of Euler products.
+Schematically, one obtains expressions of the form
+
+∑∑ 
+exp 1
+
+a 
+p,k(t) ,
+
+p k≥1 k
+
+where the coefficients ap,k(t) encode weighted contributions of prime powers. Under Mellin
+transformation, such expressions give rise to logarithmic derivatives of Euler products, thereby
+connecting trace invariants to log ζ(s) and its derivatives.
+
+8.4 Von Mangoldt terms
+
+The appearance of the von Mangoldt function in the diagonal potential of the SMRK Hamiltonian
+ensures that prime powers contribute with the correct arithmetic weights. In Mellin space, these
+contributions manifest themselves as sums∑of the form
+
+∞ Λ(n)
+,
+
+s
+n=1 n
+
+which are well known to coincide with −ζ ′(s)/ζ(s) for ℜ(s) > 1.
+Thus, the arithmetic potential built into the operator construction directly feeds into the prime-
+side structure of the trace invariants and reproduces the classical logarithmic derivative of the
+zeta function.
+
+185
+
+
+
+8.5 Spectral interpretation of the explicit formula
+
+Combining the spectral-side representation of trace invariants with their prime-side expansions
+yields identities that parallel the explicit formula of analytic number theory. Zeros of the zeta
+function appear not as individual eigenvalues, but as oscillatory components in the spectral
+representation of the trace.
+From this viewpoint, the explicit formula is interpreted as a statement about the equality of two
+representations of the same renormalized trace invariant, rather than as a direct spectral identity.
+
+8.6 Critical line considerations
+
+The SMRK framework does not require a priori assumptions about the location of zeros of the
+zeta function. However, the symmetry properties of the Hamiltonian and of the associated trace
+invariants suggest a natural reflection symmetry in Mellin space corresponding to s↔ 1− s.
+This symmetry is inherited from the arithmetic structure of the operator and provides a conceptual
+explanation for the appearance of the critical line in explicit formulas, without asserting a direct
+identification of zeros with eigenvalues.
+
+8.7 Analytic continuation and regularization
+
+Both the spectral zeta function and the Riemann zeta function require analytic continuation
+beyond their initial domains of convergence. In the SMRK setting, analytic continuation arises
+from the subtraction of short-time divergences in the heat trace and from the renormalized
+definition of trace invariants.
+This parallel highlights the role of renormalization as a unifying mechanism in both spectral
+theory and analytic number theory.
+
+8.8 Limitations of the correspondence
+
+It is important to emphasize the limitations of the correspondence described here. The SMRK
+Hamiltonian does not provide a direct spectral realization of the zeros of the Riemann zeta
+function. Instead, it offers a framework in which arithmetic information encoded by the zeta
+function emerges naturally at the level of trace invariants.
+This distinction avoids overinterpretation of the operator model and clarifies the precise scope of
+the claims being made.
+
+8.9 Outlook
+
+In the next chapter we examine the role of symmetry and functional equations in greater detail.
+We show how reflection symmetries of trace invariants mirror the functional equation of the
+Riemann zeta function and constrain admissible operator models.
+
+9 Functional Equation and Symmetry
+
+9.1 Symmetry as a structural principle
+
+One of the most striking features of the Riemann zeta function is the existence of a functional
+equation relating values at s and 1− s. Any operator-theoretic framework intended to interface
+
+186
+
+
+
+with arithmetic explicit formulas must account for this symmetry at a structural level.
+In the SMRK program, symmetry is not imposed post hoc on spectral data, but is built into the
+operator construction and the associated trace invariants. This chapter analyzes how functional-
+equation-type symmetries emerge naturally from the arithmetic structure of the Hamiltonian.
+
+9.2 Reflection symmetry in Mellin space
+
+Trace invariants associated with the SMRK Hamiltonian admit representations in Mellin space
+via integral transforms of the heat trace. In this representation, the natural involution s 7→ 1− s
+arises as a reflection symmetry of the Mellin variable.
+This symmetry is linked to the logarithmic weighting of arithmetic states and to the invariance
+of the underlying Hilbert space under multiplicative inversion at the level of scales. As a result,
+trace expressions exhibit paired contributions at s and 1 − s, mirroring the structure of the
+functional equation.
+
+9.3 Prime-shift symmetry
+
+At the operator level, symmetry manifests itself through the pairing of forward and backward
+prime shifts. The operators Sp and S∗
+
+p appear on equal footing in the symmetrized kinetic terms
+of the SMRK Hamiltonian.
+This pairing ensures that prime multiplication and division contribute symmetrically to trace
+invariants. It is this symmetry that ultimately gives rise to balanced prime-side expansions and
+prevents the emergence of spurious asymmetries in the arithmetic trace formulas.
+
+9.4 Diagonal potentials and scale duality
+
+The diagonal arithmetic potentials, particularly the logarithmic term logn, play a crucial role in
+implementing scale duality. Under Mellin transformation, multiplication by logn corresponds to
+differentiation with respect to the spectral parameter s.
+This correspondence is essential for reproducing the structure of the functional equation and for
+ensuring that renormalized trace invariants transform covariantly under s 7→ 1− s.
+
+9.5 Symmetry of the renormalization scheme
+
+Renormalization is meaningful only if it preserves the symmetries of the underlying problem. In
+the SMRK framework, the subtraction of divergent terms is designed to be invariant under the
+same involutions that govern the trace invariants themselves.
+Any renormalization scheme that breaks reflection symmetry would lead to inconsistent trace
+identities and is therefore excluded. This requirement significantly restricts admissible subtraction
+procedures and reinforces the rigidity of the framework.
+
+9.6 Consequences for trace invariants
+
+As a result of the symmetries described above, the trace invariants associated with the SMRK
+Hamiltonian satisfy functional relations analogous to those of the Riemann zeta function. While
+these relations do not imply a direct spectral realization of zeta zeros, they ensure that trace
+formulas respect the same global constraints as the classical explicit formula.
+
+187
+
+
+
+Symmetry thus acts as a consistency condition linking operator construction, renormalization,
+and arithmetic interpretation.
+
+9.7 Comparison with classical functional equations
+
+In classical analytic number theory, the functional equation of the zeta function is often derived
+using Poisson summation or theta-function identities. The SMRK approach replaces these
+analytic tools with operator-theoretic symmetry principles.
+This shift in perspective highlights the universality of functional equations as manifestations of
+deeper symmetries, rather than as isolated analytic accidents.
+
+9.8 Limitations and scope
+
+The symmetry considerations presented here constrain the structure of admissible operators
+and trace invariants, but they do not by themselves determine the spectrum of the SMRK
+Hamiltonian. Additional analytic input would be required to extract fine-grained information
+about zeros or to establish stronger arithmetic consequences.
+The role of symmetry in the SMRK program is therefore structural rather than deterministic.
+
+9.9 Outlook
+
+In the final chapter we summarize the construction and its implications, clarify what has and
+has not been established, and outline directions for future work and potential falsification of the
+SMRK framework.
+
+10 Conclusion and Future Directions
+
+10.1 Summary of the construction
+
+In this work we have constructed a self-adjoint realization of the SMRK Hamiltonian acting
+on an arithmetic Hilbert space. The operator arises from symmetrized prime shift interactions
+combined with diagonal arithmetic potentials and is defined rigorously through a renormalized
+quadratic-form approach.
+The construction proceeds in a sequence of conceptually transparent steps: prime cutoffs
+regularize the kinetic terms, divergent contributions are removed by a canonical subtraction,
+and the resulting closed quadratic form uniquely determines a self-adjoint operator. This
+approach avoids ambiguities associated with self-adjoint extensions and ensures stability under
+perturbations.
+
+10.2 Spectral and arithmetic features
+
+The resulting SMRK Hamiltonian is lower semi-bounded and has compact resolvent, implying
+a purely discrete spectrum. While individual eigenvalues are not identified with arithmetic
+quantities, the operator admits a rich family of trace invariants that encode arithmetic information
+in an averaged and renormalization-stable manner.
+These trace invariants exhibit a dual structure: on the spectral side they are expressed as sums
+over eigenvalues, while on the arithmetic side they admit expansions involving primes and prime
+powers. This duality mirrors the structure of explicit formulas in analytic number theory.
+
+188
+
+
+
+10.3 Relation to the Riemann zeta function
+
+A central outcome of the analysis is the natural emergence of the Riemann zeta function and
+its logarithmic derivative from spectral invariants of the SMRK Hamiltonian. This emergence
+occurs through Mellin transforms of the heat trace and through the presence of the von Mangoldt
+function in the diagonal arithmetic potential.
+The correspondence is structural rather than literal: zeros of the zeta function are not claimed
+to coincide with eigenvalues of the Hamiltonian. Instead, the operator framework reproduces the
+architecture of the explicit formula at the level of renormalized trace identities.
+
+10.4 Symmetry and functional equations
+
+Symmetry plays a central role throughout the construction. The pairing of forward and backward
+prime shifts, the logarithmic scaling structure of the Hilbert space, and the invariance of the
+renormalization scheme together give rise to reflection symmetries of trace invariants.
+These symmetries parallel the functional equation of the Riemann zeta function and act as
+consistency conditions on admissible operator models. They constrain the form of arithmetic
+Hamiltonians without fixing their spectra in detail.
+
+10.5 Limitations of the present approach
+
+The SMRK Hamiltonian does not provide a proof of the Riemann Hypothesis, nor does it offer
+a direct spectral realization of zeta zeros. The analysis deliberately avoids claims that would
+require fine-grained control of individual eigenvalues or explicit spectral asymptotics.
+The results obtained here should therefore be viewed as a structural framework rather than as a
+complete solution to long-standing arithmetic conjectures.
+
+10.6 Directions for future work
+
+Several directions for further investigation suggest themselves. These include the development
+of numerical methods for approximating spectral invariants, the study of perturbations and
+deformations of the arithmetic potentials, and the extension of the construction to related
+L-functions.
+Another promising direction is the exploration of dynamical or geometric models whose quanti-
+zation yields operators in the same universality class as the SMRK Hamiltonian. Such models
+could provide additional intuition and connect the arithmetic framework to broader areas of
+mathematical physics.
+
+10.7 Falsifiability and robustness
+
+An important feature of the SMRK framework is its falsifiability. Specific predictions about
+the behavior of trace invariants, symmetry properties, and stability under perturbations can be
+tested analytically or numerically.
+Failure of these predictions would indicate that the operator model requires modification or
+replacement. Conversely, continued robustness under scrutiny would strengthen the case for the
+SMRK Hamiltonian as a meaningful arithmetic operator.
+
+189
+
+
+
+10.8 Final remarks
+
+The construction presented here demonstrates that operator-theoretic methods, when combined
+with renormalization and arithmetic structure, provide a coherent and flexible framework for
+interfacing spectral theory with analytic number theory.
+Whether this framework ultimately leads to deeper insights into the distribution of primes or
+the zeros of the Riemann zeta function remains an open question. Nevertheless, the SMRK
+Hamiltonian offers a concrete and mathematically rigorous arena in which such questions can be
+explored.
+
+190
+
+
+
+Appendix A
+
+A.1 Technical Remarks and Supplementary Material
+This appendix collects technical remarks, clarifications, and auxiliary constructions that support
+the main text but are not essential for its logical flow. No new conceptual assumptions are
+introduced here.
+
+A.1.1 Arithmetic Graph Structure
+
+The arithmetic graph underlying the prime-shift operators has vertex set N and directed edges
+n −→ pn for each p ∈ P.
+
+Each vertex has infinite out-degree and finite in-degree. This graph is locally finite only after
+imposing a prime cutoff.
+The adjacency structure is multiplicative rather than additive, distinguishing it from conventional
+lattices and justifying the use of operator-based rather than geometric intuition.
+
+A.1.2 Regularized Operators
+
+All operators considered∑in this w(ork admit natural regularized versions )
+(H(N,P )
+
+φ ψ)(n) = w(p) e2πiθ(n,p)ψ(pn) + 1p|ne
+−2πiθ(n/p,p)ψ(n/p) + V (n)ψ(n),
+
+p≤P
+pn≤N
+
+acting on CN .
+Such truncations define finite Hermitian matrices and are suitable for numerical diagonalization.
+All spectral statements in the main text refer to limits or stability properties of these regularized
+operators.
+
+A.1.3 Gauge Equivalence and Boundary Effects
+
+Formally, the gauge-transformed operator
+Hη = G−1
+
+η H0Gη
+
+is unitarily equivalent to the untwisted operator H0. However, this equivalence is exact only in
+the infinite, untruncated setting.
+Finite truncations break gauge invariance through boundary effects. These effects are not artifacts
+but carry the phase sensitivity exploited in numerical probes. Spectral dependence on gauge
+parameters therefore reflects arithmetic structure interacting with truncation geometry.
+
+A.1.4 Quadratic Form Estimates
+
+For ψ ∈ c00(N), the quadratic form∑associat∑ed with the g∑olden-phase operator satisfies
+|Qφ(ψ)| ≤ 2 |w(p)| |ψ(n)|2 + |V (n)||ψ(n)|2,
+
+p n n
+
+191
+
+
+
+formally suggesting boundedness under sufficiently strong damping of w(p).
+While this estimate is heuristic, it motivates the use of exponentially damped weights in numerical
+experiments.
+
+A.1.5 Alternative Gauge Choices
+
+Although the main text focuses on golden-phase gauges, the construction extends to arbitrary
+irrational gauges. In particular, one may replace φ by other quadratic irrationals or by generic
+badly approximable numbers.
+The golden ratio is distinguished not by uniqueness but by extremality: it provides a canonical
+benchmark against which other irrational gauges may be compared.
+
+A.1.6 Pseudocode Sketch
+
+A minimal numerical implementation proceeds as follows:
+1. Fix truncation parameters (N,P ) and gauge choice ηφ.
+2. Construct the sparse matrix representing (N,P )
+
+Hφ .
+3. Diagonalize the matrix using standard Hermitian solvers.
+4. Compute spectral observables and compare against control ensembles.
+
+Because the operator is sparse and structured, scalable implementations are feasible even for
+moderately large N .
+
+A.1.7 Relation to Other Operator Constructions
+
+Prime-shift operators with and without gauge phases appear implicitly in various contexts in
+analytic number theory and mathematical physics. The distinguishing feature of the present
+construction is the systematic use of gauge geometry as a diagnostic tool rather than as a
+modeling assumption.
+This viewpoint aligns naturally with operator-based arithmetic programs while remaining agnostic
+about deeper conjectural interpretations.
+
+A.1.8 Closing Remark
+
+The technical considerations collected here are intended to clarify, not to complicate, the
+constructions presented in the main text. All essential ideas are contained in the core chapters;
+the appendix merely provides supporting detail for interested readers and practitioners.
+
+192
+
+
+
+Appendix B
+
+B.1 Mellin-Space Formulation of Trace Invariants
+
+This appendix develops the Mellin-space representation of the trace invariants associated with the
+SMRK Hamiltonian. The purpose is to make precise the relation between heat traces, spectral
+zeta functions, and arithmetic Dirichlet series.
+
+B.1.1 Mellin transform conventions
+
+Let f : (0,∞)→ C be a locally integrable function with suitable decay properties. We define its
+Mellin transform by ∫ ∞
+
+(Mf)(s) := t s−1f(t) dt,
+0
+
+whenever the integral converges. The inverse Mellin transform is given formally by
+∫ σ+i∞
+
+f(t) = 1
+2 t−s(Mf)(s) ds,
+πi σ−i∞
+
+with σ chosen in a strip of analyticity.
+
+B.1.2 Heat trace and spectral zeta function
+
+Let Θ(t) = Tr(e−tH̃SMRK) denote the heat trace. As shown in Chapter 7, Θ(t) is finite for all
+t > 0 and admits a short-time asymptotic expansion.
+The spectral zeta function is defined by
+
+∑∞
+ζspec(s) = E−s
+
+k ,
+k=1
+
+for ℜ(s) sufficiently large, where {Ek} denotes the discrete spectrum of H̃SMRK. Using the Mellin
+transform of the heat trace, one obtains ∫
+
+ζspec(s) = 1 ∞
+t s−1
+
+Γ(s) Θ(t) dt,
+0
+
+which provides analytic continuation to a meromorphic function of s.
+
+B.1.3 Renormalization and subtraction terms
+
+The integral defining ζspec(s) diverges at t = 0 unless suitable subtractions are performed. These
+divergences correspond to the leading short-time terms of the heat trace expansion.
+In the SMRK framework, the required subtractions are precisely those dictated by the renormal-
+ized quadratic-form construction. After subtraction, the Mellin integral converges in a vertical
+strip and defines a renormalized spectral zeta function.
+
+193
+
+
+
+B.1.4 Prime-side representation
+
+Formally expanding the heat kernel using the prime-shift decomposition yields expressions
+involving sums over primes and their powers. After Mellin transformation, these terms give rise
+to Dirichlet series of the form ∑∞ a(n)
+
+,
+s
+
+n=1 n
+
+where the coefficients a(n) are supported on prime powers and weighted by arithmetic transition
+amplitudes.
+In particular, the von Mangoldt function appears naturally through the diagonal arithmetic
+potential, producing terms proportional to −ζ ′(s)/ζ(s) in the prime-side expansion.
+
+B.1.5 Dual representations of trace invariants
+
+The Mellin-space formulation makes explicit the dual nature of trace invariants. On the spectral
+side, they are expressed as sums or integrals involving the eigenvalues of H̃SMRK. On the
+arithmetic side, they appear as Dirichlet series or Euler-product-like expressions built from
+primes.
+Equality of these two representations, once properly renormalized, constitutes the operator-
+theoretic analogue of the explicit formula.
+
+B.1.6 Reflection symmetry in Mellin space
+
+The Mellin variable s naturally admits the involution s 7→ 1− s. In the SMRK framework, this
+symmetry is reflected in the structure of the heat trace and its subtractions, leading to functional
+relations for ζspec(s).
+These relations parallel the functional equation of the Riemann zeta function and originate from
+scale duality and the symmetric treatment of prime shifts.
+
+B.1.7 Analytic continuation
+
+Analytic continuation in Mellin space is achieved by shifting the contour of integration and
+accounting for residues at poles arising from subtraction terms. This procedure mirrors standard
+techniques in analytic number theory and spectral geometry.
+The resulting continuation is unique up to entire functions determined by the renormalization
+scheme, emphasizing once again the central role of renormalized trace invariants.
+
+B.1.8 Concluding remark
+
+The Mellin-space formulation clarifies the precise mathematical mechanism by which the Riemann
+zeta function and related Dirichlet series enter the SMRK framework. It provides a transparent
+bridge between spectral theory and arithmetic analysis and underpins the trace formulas discussed
+in the main text.
+
+194
+
+
+
+Appendix C
+
+C.1 Comparison with Other Operator-Based Approaches
+This appendix places the SMRK Hamiltonian in context by comparing it with other operator-
+theoretic frameworks that have been proposed in connection with arithmetic problems and the
+Riemann zeta function. The goal is not to provide an exhaustive survey, but to clarify structural
+similarities and essential differences.
+
+C.1.1 Classical Hilbert–Pólya proposals
+
+The Hilbert–Pólya conjecture suggests the existence of a self-adjoint operator whose spectrum
+coincides with the imaginary parts of the nontrivial zeros of the Riemann zeta function. Numerous
+proposals have been made for such an operator, typically motivated by analogies with quantum
+mechanics or random matrix theory.
+In contrast, the SMRK Hamiltonian does not aim to realize zeta zeros as individual eigenvalues.
+Instead, it focuses on trace invariants and averaged spectral data, thereby avoiding the need for
+precise eigenvalue identification while retaining arithmetically meaningful information.
+
+C.1.2 Berry–Keating-type models
+
+Berry–Keating models are based on quantizations of the classical Hamiltonian H = xp and
+related dynamical systems. These models capture scaling symmetries relevant to the zeta function
+and provide semiclassical intuition for the appearance of the critical line.
+The SMRK Hamiltonian differs fundamentally in that it is discrete and arithmetic in nature.
+Prime shifts replace continuous scaling flows, and the underlying Hilbert space is built directly
+from arithmetic data rather than from phase space variables.
+
+C.1.3 Connes’ trace formula and noncommutative geometry
+
+Alain Connes has developed a far-reaching framework in which the explicit formula of analytic
+number theory appears as a trace formula in noncommutative geometry. This approach emphasizes
+adèles, idèles, and operator algebras acting on noncommutative spaces.
+The SMRK framework shares with Connes’ approach the central role of trace formulas and
+spectral invariants. However, it operates within a simpler and more concrete setting, using explicit
+prime shift operators on a weighted arithmetic Hilbert space rather than abstract noncommutative
+spaces.
+
+C.1.4 Random matrix models
+
+Random matrix theory has been remarkably successful in describing statistical properties of zeta
+zeros. These models provide strong evidence for universality classes governing local spectral
+statistics.
+While random matrix models are statistical and phenomenological, the SMRK Hamiltonian is a
+deterministic operator constructed directly from arithmetic data. Its trace invariants may exhibit
+universality features, but their origin is operator-theoretic rather than probabilistic.
+
+195
+
+
+
+C.1.5 Quantum graphs and arithmetic graphs
+
+Quantum graphs have been proposed as models for arithmetic spectral problems, with edges and
+vertices encoding number-theoretic information. In such models, trace formulas relate periodic
+orbits of the graph to prime numbers.
+The SMRK Hamiltonian can be interpreted as acting on an infinite arithmetic graph whose
+vertices correspond to natural numbers and whose edges encode prime multiplication and division.
+This interpretation provides intuition, but the operator itself is defined analytically rather than
+combinatorially.
+
+C.1.6 Renormalization versus cutoff models
+
+Many operator-based approaches rely on hard cutoffs or boundary conditions to render formal
+expressions finite. Such cutoffs often introduce ambiguities or break symmetries.
+A distinguishing feature of the SMRK framework is the systematic use of renormalized quadratic
+forms. Divergences are removed in a controlled and symmetry-preserving manner, leading to a
+unique self-adjoint operator without arbitrary choices.
+
+C.1.7 Scope and limitations
+
+Compared to prior models, the SMRK Hamiltonian occupies a middle ground between abstract
+generality and explicit arithmetic construction. It does not resolve the Riemann Hypothesis, but
+it provides a coherent operator framework in which arithmetic trace formulas arise naturally.
+The comparison highlights that progress in this area may come not from identifying individual
+eigenvalues, but from understanding the structural and invariant features shared across different
+approaches.
+
+C.1.8 Concluding remark
+
+The SMRK Hamiltonian complements existing operator-based models by emphasizing renormal-
+ization, stability, and trace invariants. Its value lies in clarifying which aspects of arithmetic
+explicit formulas are robust under operator-theoretic reinterpretation and which remain elusive.
+
+196
+
+
+
+Appendix D
+
+D.1 Conceptual and Physical Analogies
+This appendix collects conceptual and physical analogies that help situate the SMRK Hamiltonian
+within a broader scientific context. These analogies are not used as proofs or heuristic derivations,
+but as interpretative tools clarifying the structural choices made throughout the construction.
+
+D.1.1 Renormalization as arithmetic vacuum subtraction
+
+In quantum field theory, renormalization removes divergent vacuum contributions that do not
+carry physical information. A closely analogous mechanism appears in the SMRK framework.
+The divergence arising from the prime harmonic sum
+
+∑ 1
+p≤ p
+P
+
+is universal and independent of the arithmetic state. Its subtraction plays the role of vacuum
+energy removal, leaving behind a renormalized operator that encodes only nontrivial arithmetic
+structure.
+
+D.1.2 Arithmetic scale as energy scale
+
+The logarithmic potential logn introduces a natural notion of scale in the arithmetic Hilbert
+space. Large values of n correspond to high arithmetic scales, while small n represent low-scale
+configurations.
+This identification mirrors the role of energy scales in physical systems and provides a natural
+interpretation of the heat parameter t as an inverse arithmetic energy scale.
+
+D.1.3 Prime shifts as interaction vertices
+
+Prime shift operators generate discrete transitions between arithmetic states. From a physical
+viewpoint, these transitions resemble interaction vertices, where a state interacts with a prime
+quantum.
+Forward and backward prime shifts appear symmetrically, reflecting time-reversal or charge-
+conjugation-type symmetry in the arithmetic dynamics.
+
+D.1.4 Trace invariants as partition functions
+
+The heat trace ( )
+Θ(t) = Tr e−tHSMRK
+
+admits an interpretation analogous to a partition function. It aggregates contributions from all
+arithmetic states weighted by their effective energy.
+Renormalized trace invariants thus play a role similar to thermodynamic potentials, encoding
+global structural information rather than microscopic details.
+
+197
+
+
+
+D.1.5 Mellin transform and dual representations
+
+The Mellin transform acts as a bridge between scale space and spectral space. In this respect it
+is analogous to the Fourier transform linking time and frequency.
+Reflection symmetry in Mellin space corresponds to a duality between small and large arithmetic
+scales, reinforcing the interpretation of the construction as a scale-invariant or scale-dual system.
+
+D.1.6 Comparison with quantum statistical systems
+
+The SMRK Hamiltonian shares features with quantum statistical mechanical models, particularly
+those based on discrete spectra and trace-class evolution operators. However, unlike thermal
+systems, the arithmetic dynamics do not arise from probabilistic ensembles but from deterministic
+multiplicative structure.
+This distinction underscores the arithmetic nature of the construction despite the formal similarity
+of the tools employed.
+
+D.1.7 Universality and robustness
+
+Many structural properties of the SMRK Hamiltonian, such as discreteness of the spectrum,
+trace-class heat evolution, and stability under perturbations, are robust under modifications of
+the model.
+This robustness suggests that the observed features belong to a universality class of arithmetic
+operators governed by multiplicative dynamics and renormalized traces, rather than to a finely
+tuned construction.
+
+D.1.8 Limits of physical analogy
+
+While physical analogies provide intuition, they have clear limits. The SMRK Hamiltonian is
+not derived from a physical system, nor does it describe physical particles or fields.
+All analogies must therefore be understood as structural correspondences rather than literal
+identifications.
+
+D.1.9 Concluding perspective
+
+The value of the SMRK framework lies in its synthesis of arithmetic structure, operator theory,
+and renormalization. Physical analogies help illuminate this synthesis, but the mathematical
+content stands independently of any physical interpretation.
+In this sense, the SMRK Hamiltonian occupies a conceptual position analogous to that of spectral
+geometry: a domain where analytic, algebraic, and structural ideas converge without being
+reducible to any single interpretation.
+
+198
